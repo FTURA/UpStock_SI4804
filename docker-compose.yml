@@ -38,7 +38,7 @@ services:
     image: nginx:alpine
     container_name: stockmate_client
     volumes:
-      - ./client:/usr/share/nginx/html
+      - ./client/dist:/usr/share/nginx/html
     ports:
       - "8080:80"
 
