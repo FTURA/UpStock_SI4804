@@ -115,7 +115,7 @@ function App() {
     e.preventDefault();
     const { name, price, stock, categoryId, supplierId } = newProduct;
     if (!name || !price || stock === '') {
-      setAlertTambah({ type: 'error', message: '⚠️ Nama, harga, dan stok wajib diisi!' });
+      setAlertTambah({ type: 'error', message: ' Nama, harga, dan stok wajib diisi!' });
       return;
     }
 
@@ -137,9 +137,9 @@ function App() {
     });
 
     if (res.errors) {
-      setAlertTambah({ type: 'error', message: '❌ Gagal: ' + res.errors[0].message });
+      setAlertTambah({ type: 'error', message: 'Gagal: ' + res.errors[0].message });
     } else {
-      setAlertTambah({ type: 'success', message: `✅ Produk "${res.data.addProduct.name}" berhasil ditambahkan!` });
+      setAlertTambah({ type: 'success', message: `Produk "${res.data.addProduct.name}" berhasil ditambahkan!` });
       setNewProduct({ name: '', price: '', stock: '', categoryId: '', supplierId: '' });
       loadProducts();
       loadTransactions(); // adding product creates an initial IN transaction automatically in backend sometimes
@@ -151,7 +151,7 @@ function App() {
     e.preventDefault();
     const { productId, quantity, type, note } = stockUpdate;
     if (!productId || !quantity) {
-      setAlertStok({ type: 'error', message: '⚠️ Produk dan jumlah wajib diisi!' });
+      setAlertStok({ type: 'error', message: 'Produk dan jumlah wajib diisi!' });
       return;
     }
 
@@ -196,7 +196,7 @@ function App() {
     e.preventDefault();
     const { name, contact, address } = newSupplier;
     if (!name) {
-      setAlertSupplier({ type: 'error', message: '⚠️ Nama supplier wajib diisi!' });
+      setAlertSupplier({ type: 'error', message: 'Nama supplier wajib diisi!' });
       return;
     }
 
@@ -207,9 +207,9 @@ function App() {
     `, { name, contact, address });
 
     if (res.errors) {
-      setAlertSupplier({ type: 'error', message: '❌ Gagal: ' + res.errors[0].message });
+      setAlertSupplier({ type: 'error', message: 'Gagal: ' + res.errors[0].message });
     } else {
-      setAlertSupplier({ type: 'success', message: `✅ Supplier "${res.data.addSupplier.name}" berhasil ditambahkan!` });
+      setAlertSupplier({ type: 'success', message: `Supplier "${res.data.addSupplier.name}" berhasil ditambahkan!` });
       setNewSupplier({ name: '', contact: '', address: '' });
       loadSuppliers();
     }
@@ -220,7 +220,7 @@ function App() {
     e.preventDefault();
     const { name, description } = newCategory;
     if (!name) {
-      setAlertCategory({ type: 'error', message: '⚠️ Nama kategori wajib diisi!' });
+      setAlertCategory({ type: 'error', message: 'Nama kategori wajib diisi!' });
       return;
     }
 
@@ -231,9 +231,9 @@ function App() {
     `, { name, description });
 
     if (res.errors) {
-      setAlertCategory({ type: 'error', message: '❌ Gagal: ' + res.errors[0].message });
+      setAlertCategory({ type: 'error', message: 'Gagal: ' + res.errors[0].message });
     } else {
-      setAlertCategory({ type: 'success', message: `✅ Kategori "${res.data.addCategory.name}" berhasil ditambahkan!` });
+      setAlertCategory({ type: 'success', message: `Kategori "${res.data.addCategory.name}" berhasil ditambahkan!` });
       setNewCategory({ name: '', description: '' });
       loadCategories();
     }
@@ -252,7 +252,6 @@ function App() {
           <h1>UpStock</h1>
           <p>Sistem Manajemen Inventori Toko &amp; Integrasi Aplikasi</p>
         </div>
-        <div className="brand-badge">UAS EAI — SI4804</div>
       </header>
 
       {/* Dashboard Summary Cards */}
@@ -279,31 +278,31 @@ function App() {
           className={`tab-btn ${activeTab === 'produk' ? 'active' : ''}`}
           onClick={() => setActiveTab('produk')}
         >
-          🛒 Produk
+          Produk
         </button>
         <button 
           className={`tab-btn ${activeTab === 'tambahProduk' ? 'active' : ''}`}
           onClick={() => setActiveTab('tambahProduk')}
         >
-          ➕ Tambah Produk
+          Tambah Produk
         </button>
         <button 
           className={`tab-btn ${activeTab === 'updateStok' ? 'active' : ''}`}
           onClick={() => setActiveTab('updateStok')}
         >
-          🔄 Update Stok
+          Update Stok
         </button>
         <button 
           className={`tab-btn ${activeTab === 'supplier' ? 'active' : ''}`}
           onClick={() => setActiveTab('supplier')}
         >
-          🏭 Supplier &amp; Kategori
+          Supplier &amp; Kategori
         </button>
         <button 
           className={`tab-btn ${activeTab === 'transaksi' ? 'active' : ''}`}
           onClick={() => setActiveTab('transaksi')}
         >
-          📋 Transaksi
+          Transaksi
         </button>
       </nav>
 
@@ -322,7 +321,7 @@ function App() {
                 <div className="table-header">
                   <h2>Daftar Produk Inventori</h2>
                   <button className="btn btn-primary" onClick={loadAllData} style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
-                    🔄 Refresh
+                    Refresh
                   </button>
                 </div>
                 <div className="table-responsive">
@@ -384,7 +383,7 @@ function App() {
             {/* PANEL: Tambah Produk */}
             {activeTab === 'tambahProduk' && (
               <div className="form-card">
-                <h2>➕ Tambah Produk Baru</h2>
+                <h2>Tambah Produk Baru</h2>
                 {alertTambah.message && (
                   <div className="alert-container">
                     <div className={`alert-message ${alertTambah.type}`}>
@@ -451,7 +450,7 @@ function App() {
                   </div>
                   <div className="form-group full-width form-actions">
                     <button type="submit" className="btn btn-primary">
-                      💾 Simpan Produk
+                      Simpan Produk
                     </button>
                   </div>
                 </form>
@@ -461,7 +460,7 @@ function App() {
             {/* PANEL: Update Stok */}
             {activeTab === 'updateStok' && (
               <div className="form-card">
-                <h2>🔄 Update Stok Produk</h2>
+                <h2>Update Stok Produk</h2>
                 {alertStok.message && (
                   <div className="alert-container">
                     <div className={`alert-message ${alertStok.type}`}>
@@ -517,7 +516,7 @@ function App() {
                   </div>
                   <div className="form-group full-width form-actions">
                     <button type="submit" className="btn btn-primary">
-                      ⚡ Jalankan Transaksi Stok
+                     Jalankan Transaksi Stok
                     </button>
                   </div>
                 </form>
@@ -530,7 +529,7 @@ function App() {
                 {/* Bagian Supplier */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   <div className="form-card" style={{ margin: 0, maxWidth: 'none' }}>
-                    <h2>🏭 Tambah Supplier Baru</h2>
+                    <h2>Tambah Supplier Baru</h2>
                     {alertSupplier.message && (
                       <div className="alert-container">
                         <div className={`alert-message ${alertSupplier.type}`}>
@@ -569,7 +568,7 @@ function App() {
                       </div>
                       <div className="form-actions">
                         <button type="submit" className="btn btn-primary">
-                          💾 Simpan Supplier
+                          Simpan Supplier
                         </button>
                       </div>
                     </form>
@@ -615,7 +614,7 @@ function App() {
                 {/* Bagian Kategori */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   <div className="form-card" style={{ margin: 0, maxWidth: 'none' }}>
-                    <h2>🏷️ Tambah Kategori Baru</h2>
+                    <h2>Tambah Kategori Baru</h2>
                     {alertCategory.message && (
                       <div className="alert-container">
                         <div className={`alert-message ${alertCategory.type}`}>
